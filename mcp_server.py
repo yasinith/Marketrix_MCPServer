@@ -1,6 +1,7 @@
 import asyncio
 import json
 import logging
+import uvicorn
 from typing import Any, Dict
 from contextlib import asynccontextmanager
 
@@ -159,5 +160,4 @@ async def websocket_endpoint(websocket: WebSocket, session_id: str = Query(defau
             del response_queues[session_id]
 
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000, log_level="info")
